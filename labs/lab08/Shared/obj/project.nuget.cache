@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ng95mo5U6kY4cEdsU7tbTuNMcClYmuR19HSWD6uBwHR0qlujGU1F83ouURkhveiOlkv+3y7DVSnDGXO9jZ7vdA==",
+  "success": true,
+  "projectFilePath": "D:\\repos\\cosmodbinaday\\labs\\lab08\\Shared\\Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\astalati\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

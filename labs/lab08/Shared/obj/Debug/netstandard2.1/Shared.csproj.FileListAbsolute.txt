@@ -1,0 +1,10 @@
+D:\repos\cosmodbinaday\labs\lab08\Shared\bin\Debug\netstandard2.1\Shared.deps.json
+D:\repos\cosmodbinaday\labs\lab08\Shared\bin\Debug\netstandard2.1\Shared.dll
+D:\repos\cosmodbinaday\labs\lab08\Shared\bin\Debug\netstandard2.1\Shared.pdb
+D:\repos\cosmodbinaday\labs\lab08\Shared\obj\Debug\netstandard2.1\Shared.csproj.AssemblyReference.cache
+D:\repos\cosmodbinaday\labs\lab08\Shared\obj\Debug\netstandard2.1\Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\cosmodbinaday\labs\lab08\Shared\obj\Debug\netstandard2.1\Shared.AssemblyInfoInputs.cache
+D:\repos\cosmodbinaday\labs\lab08\Shared\obj\Debug\netstandard2.1\Shared.AssemblyInfo.cs
+D:\repos\cosmodbinaday\labs\lab08\Shared\obj\Debug\netstandard2.1\Shared.csproj.CoreCompileInputs.cache
+D:\repos\cosmodbinaday\labs\lab08\Shared\obj\Debug\netstandard2.1\Shared.dll
+D:\repos\cosmodbinaday\labs\lab08\Shared\obj\Debug\netstandard2.1\Shared.pdb

@@ -1,0 +1,164 @@
+-- Default
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ]
+}
+
+-- If you wanted to only index the manufacturerName, foodGroup, and nutrients array, you should define the following index policy. 
+-- In this example, we use the wildcard character * to indicate that we would like to index all paths within the nutrients array.
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/manufacturerName/*"
+        },
+        {
+            "path": "/foodGroup/*"
+        },
+        {
+            "path": "/nutrients/[]/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/*"
+        }
+    ]
+}
+
+-- In this next example, the indexing policy would explicitly specify that the nutritionValue path in the nutrition array should be indexed.
+--  Since we don't use the wildcard character *, no additional paths in the array are indexed.
+-- The * character indicates that Azure Cosmos DB should index every path beyond that specific node.
+-- The ? character indicates that Azure Cosmos DB should index no further paths beyond this node.
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/manufacturerName/*"
+        },
+        {
+            "path": "/foodGroup/*"
+        },
+        {
+            "path": "/nutrients/[]/nutritionValue/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/*"
+        }
+    ]
+}
+
+-- Understand query requirements
+-- Before modifying indexing policy, it's important to understand how the data is used in the collection.
+-- If your workload is write-heavy or your documents are large, you should only index necessary paths. 
+-- This will significantly decrease the amount of RU's required for inserts, updates, and deletes.
+-- Let's imagine that the following queries are the only read operations that are executed on the FoodCollection container.
+-- SELECT * FROM c WHERE c.manufacturerName = <manufacturerName>
+-- SELECT * FROM c WHERE c.foodGroup = <foodGroup>
+-- These queries only require an index be defined on manufacturerName and foodGroup. We can modify the indexing policy to index only these properties.
+
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/manufacturerName/*"
+        },
+        {
+            "path": "/foodGroup/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/*"
+        }
+    ]
+}
+
+-- Execute following query and observe the RU usage
+SELECT * FROM c WHERE c.manufacturerName = "Kellogg, Co."
+SELECT * FROM c WHERE c.description = "Bread, blue corn, somiviki (Hopi)"
+-- If a query does not use the index, the Index hit document count will be 0. 
+-- We can see above that the query needed to retrieve 8,618 documents and ultimately ended up only returning 1 document.
+
+-- In addition to manually including certain paths to be indexed, you can exclude specific paths. In many cases, 
+-- this approach can be simpler since it will allow all new properties in your document to be indexed by default. 
+-- If there is a property that you are certain you will never use in your queries, you should explicitly exclude this path.
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/description/*"
+        }
+    ]
+}
+
+-- Execute following query and observe the RU usage
+SELECT * FROM c WHERE c.manufacturerName = "Kellogg, Co."
+SELECT * FROM c WHERE c.description = "Bread, blue corn, somiviki (Hopi)"
+-- Observe that this query has a very high RU charge even though only a single document is returned. 
+-- This is because the description property is explicitly excluded in the indexing policy.
+
+-- For ORDER BY queries that order by multiple properties, a composite index is required. A composite index is defined on 
+-- multiple properties and must be manually created.
+SELECT * FROM c ORDER BY c.foodGroup ASC, c.manufacturerName ASC
+-- Query will fail "The order by query does not have a corresponding composite index that it can be served from."
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/manufacturerName/*"
+        },
+        {
+            "path": "/foodGroup/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/*"
+        },
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ],
+    "compositeIndexes": [
+        [
+            {
+                "path": "/foodGroup",
+                "order": "ascending"
+            },
+            {
+                "path": "/manufacturerName",
+                "order": "ascending"
+            }
+        ]
+    ]
+}
+
+-- After above indexing policy, following query will still fail as the indexing doesn't support that order
+SELECT * FROM c ORDER BY c.foodGroup DESC, c.manufacturerName ASC
+
+
+
+

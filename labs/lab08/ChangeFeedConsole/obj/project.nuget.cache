@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "Tw7e/kFAEFWzY6Vp/odjE7yjgcEYYxnnaPOwi1KXv2ZUUwLnawg7SWj+Fl2q2I6HJE/bqLDU11hdlI03bIByvg==",
+  "success": true,
+  "projectFilePath": "D:\\repos\\cosmodbinaday\\labs\\lab08\\ChangeFeedConsole\\ChangeFeedConsole.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\astalati\\.nuget\\packages\\microsoft.azure.cosmos\\3.0.0\\microsoft.azure.cosmos.3.0.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.private.servicemodel\\4.5.0\\system.private.servicemodel.4.5.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.reflection.dispatchproxy\\4.5.0\\system.reflection.dispatchproxy.4.5.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.servicemodel.primitives\\4.5.0\\system.servicemodel.primitives.4.5.0.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.1\\system.threading.tasks.extensions.4.5.1.nupkg.sha512",
+    "C:\\Users\\astalati\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
